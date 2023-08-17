@@ -6,7 +6,7 @@ import Main from './src/components/main';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Title texto="Titulo do App" />
+      <Title style={styles.title} texto="CALCULO IMC" />
       <Main />
       <StatusBar style="auto" />
     </View>
@@ -20,4 +20,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 20,
+    padding: 10,
+    color: '#333',
+    fontWeight: '700'
+  }
 });
