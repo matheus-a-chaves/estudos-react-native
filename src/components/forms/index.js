@@ -31,7 +31,7 @@ export default function Form(props) {
                 />
                 <Button
                     title={textButton}
-                    onPress={() => validationImc()} />
+                    onPress={() => validationMedia()} />
                 <ResultadoMedia
                     messageResultMedia={messageMedia}
                     resultMedia={media} />
@@ -41,7 +41,7 @@ export default function Form(props) {
 
     function validationMedia() {
         if (nota2 != null && nota1 != null) {
-            imcCalculator()
+            mediaCalculator()
             setMessageMedia("Seu media é igual a: ")
             setTextButton("Calcular Novamente")
             return
