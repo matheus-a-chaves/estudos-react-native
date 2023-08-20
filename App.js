@@ -6,7 +6,7 @@ import Main from './src/components/main';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Title style={styles.title} texto="CALCULO IMC" />
+      <Title style={styles.title} texto="CALCULO DE MEDIA" />
       <Main />
       <StatusBar style="auto" />
     </View>
