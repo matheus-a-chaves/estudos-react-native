@@ -1,59 +1,58 @@
 import { View, Text, TextInput, Button } from "react-native";
-import ResultImc from "../resultado_imc"
+import ResultadoMedia from "../resultado_media"
 import React, { useState } from "react"
 import styles from "./styles";
-import Title from '../title';
 
 export default function Form(props) {
-    const [altura, setAltura] = useState(null)
-    const [peso, setPeso] = useState(null)
-    const [messageImc, setMessageImc] = useState("preencha os dados")
-    const [imc, setImc] = useState(null)
+    const [nota1, setNota1] = useState(null)
+    const [nota2, setNota2] = useState(null)
+    const [messageMedia, setMessageMedia] = useState("preencha os dados")
+    const [media, setMedia] = useState(null)
     const [textButton, setTextButton] = useState("Calcular")
 
     return (
         <View>
             <View style={styles.forms}>
-                <Text style={styles.texto}>Altura: </Text>
+                <Text style={styles.texto}>Nota 1: </Text>
                 <TextInput
                     style={styles.inputText}
-                    onChangeText={setAltura}
-                    value={altura}
-                    placeholder="Ex. 1.70"
+                    onChangeText={setNota1}
+                    value={nota1}
+                    placeholder="Ex. 10"
                     keyboardType="numeric"
                 />
-                <Text style={styles.texto}>Peso: </Text>
+                <Text style={styles.texto}>Nota 2: </Text>
                 <TextInput
                     style={styles.inputText}
-                    onChangeText={setPeso}
-                    value={peso}
-                    placeholder="Ex. 70.10"
+                    onChangeText={setNota2}
+                    value={nota2}
+                    placeholder="Ex. 20"
                     keyboardType="numeric"
                 />
                 <Button
                     title={textButton}
-                    onPress={() => validationImc()} />
-                <ResultImc
-                    messageResultImc={messageImc}
-                    resultImc={imc} />
+                    onPress={() => validationMedia()} />
+                <ResultadoMedia
+                    messageResultMedia={messageMedia}
+                    resultMedia={media} />
             </View>
         </View>
     )
 
-    function validationImc() {
-        if (peso != null && altura != null) {
-            imcCalculator()
-            setMessageImc("Seu IMC é igual a: ")
+    function validationMedia() {
+        if (nota2 != null && nota1 != null) {
+            mediaCalculator()
+            setMessageMedia("Seu media é igual a: ")
             setTextButton("Calcular Novamente")
             return
         }
-        setImc(null)
+        setMedia(null)
         setTextButton("Calcular")
-        setMessageImc("preencha os dados")
+        setMessageMedia("preencha os dados")
     }
 
-    function imcCalculator() {
-        return setImc((peso / (altura * altura)).toFixed(2))
+    function mediaCalculator() {
+        return setMedia((parseInt(nota1) + parseInt(nota2)) / 2)
     }
 }
 
