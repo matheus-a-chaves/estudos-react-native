@@ -39,7 +39,7 @@ export default function Form(props) {
         </View>
     )
 
-    function validationImc() {
+    function validationMedia() {
         if (nota2 != null && nota1 != null) {
             imcCalculator()
             setMessageMedia("Seu media é igual a: ")
@@ -51,7 +51,7 @@ export default function Form(props) {
         setMessageMedia("preencha os dados")
     }
 
-    function imcCalculator() {
+    function mediaCalculator() {
         return setMedia((parseInt(nota1) + parseInt(nota2)) / 2)
     }
 }
