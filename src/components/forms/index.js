@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput, Pressable } from "react-native";
 import ResultadoMedia from "../resultado_media"
 import React, { useState } from "react"
 import styles from "./styles";
@@ -11,9 +11,9 @@ export default function Form(props) {
     const [textButton, setTextButton] = useState("Calcular")
 
     return (
-        <View>
+        <View style={{ alignItems: 'center' }}>
             <View style={styles.forms}>
-                <Text style={styles.texto}>Nota 1: </Text>
+                <Text style={styles.texto}>Nota 1</Text>
                 <TextInput
                     style={styles.inputText}
                     onChangeText={setNota1}
@@ -21,7 +21,7 @@ export default function Form(props) {
                     placeholder="Ex. 10"
                     keyboardType="numeric"
                 />
-                <Text style={styles.texto}>Nota 2: </Text>
+                <Text style={styles.texto}>Nota 2 </Text>
                 <TextInput
                     style={styles.inputText}
                     onChangeText={setNota2}
@@ -29,9 +29,9 @@ export default function Form(props) {
                     placeholder="Ex. 20"
                     keyboardType="numeric"
                 />
-                <Button
-                    title={textButton}
-                    onPress={() => validationMedia()} />
+                <Pressable style={styles.button} onPress={() => validationMedia()}>
+                    <Text style={styles.textoBotao}>{textButton}</Text>
+                </Pressable>
                 <ResultadoMedia
                     messageResultMedia={messageMedia}
                     resultMedia={media} />
@@ -42,7 +42,7 @@ export default function Form(props) {
     function validationMedia() {
         if (nota2 != null && nota1 != null) {
             mediaCalculator()
-            setMessageMedia("Seu media é igual a: ")
+            setMessageMedia("Sua media é igual a: ")
             setTextButton("Calcular Novamente")
             return
         }
