@@ -5,6 +5,7 @@ import Lista from './components/Lista'
 import Contador from './components/screens/CounterScreen'
 import ListaCor from './components/ColorList'
 import Galeria from './components/screens/GalleryScreen'
+import SearchTmdb from './components/screens/SearchTmdb'
 
 import { Entypo, Ionicons, Foundation, FontAwesome5 } from '@expo/vector-icons'
 
@@ -66,6 +67,16 @@ export default function App() {
             <Tab.Screen
                 name="Lista de Cores"
                 component={ListaCor}
+                options={{
+                    tabBarLabel: '',
+                    tabBarIcon: ({ size, color }) => (
+                        <Ionicons name="color-palette" size={size} color={color} />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Movie"
+                component={SearchTmdb}
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ size, color }) => (
