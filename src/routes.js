@@ -7,7 +7,7 @@ import ListaCor from './components/ColorList'
 import Galeria from './components/screens/GalleryScreen'
 import SearchTmdb from './components/screens/SearchTmdb'
 
-import { Entypo, Ionicons, Foundation, FontAwesome5 } from '@expo/vector-icons'
+import { Entypo, Ionicons, Foundation, FontAwesome5, MaterialIcons } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -80,7 +80,7 @@ export default function App() {
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ size, color }) => (
-                        <Ionicons name="color-palette" size={size} color={color} />
+                        <MaterialIcons name="local-movies" size={size} color={color} />
                     )
                 }}
             />
